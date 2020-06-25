@@ -1,3 +1,4 @@
 # InteligenciaHoteleira
 
-A definir o textto
+Segue Scripts para criação do databases e dados  reservas.
+executar scripts em sequencia
