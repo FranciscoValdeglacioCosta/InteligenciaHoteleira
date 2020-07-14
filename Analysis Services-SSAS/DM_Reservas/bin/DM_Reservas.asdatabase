@@ -1,0 +1,416 @@
+{
+  "name": "DM_Reservas",
+  "compatibilityLevel": 1200,
+  "model": {
+    "culture": "pt-BR",
+    "dataSources": [
+      {
+        "name": "SqlServer localhost DM_Reservas",
+        "connectionString": "Provider=SQLNCLI11;Data Source=localhost;Initial Catalog=DM_Reservas;User ID=cm;Persist Security Info=true",
+        "impersonationMode": "impersonateServiceAccount",
+        "annotations": [
+          {
+            "name": "ConnectionEditUISource",
+            "value": "SqlServer"
+          }
+        ]
+      }
+    ],
+    "tables": [
+      {
+        "name": "DimHoteis",
+        "columns": [
+          {
+            "name": "IDHOTEL",
+            "dataType": "int64",
+            "sourceColumn": "IDHOTEL",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "HOTEL",
+            "dataType": "string",
+            "sourceColumn": "HOTEL",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DimHoteis",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[DimHoteis].* FROM [dbo].[DimHoteis] ",
+              "dataSource": "SqlServer localhost DM_Reservas"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[DimHoteis].* FROM [dbo].[DimHoteis] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DimHoteis"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "DimOrigem",
+        "columns": [
+          {
+            "name": "IDORIGEM",
+            "dataType": "int64",
+            "sourceColumn": "IDORIGEM",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "DESCRICAO",
+            "dataType": "string",
+            "sourceColumn": "DESCRICAO",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DimOrigem",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[DimOrigem].* FROM [dbo].[DimOrigem] ",
+              "dataSource": "SqlServer localhost DM_Reservas"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[DimOrigem].* FROM [dbo].[DimOrigem] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DimOrigem"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "DimStatusReservas",
+        "columns": [
+          {
+            "name": "IDSTATUSRESERVA",
+            "dataType": "int64",
+            "sourceColumn": "IDSTATUSRESERVA",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "STATUSRESERVAS",
+            "dataType": "string",
+            "sourceColumn": "STATUSRESERVAS",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DimStatusReservas",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[DimStatusReservas].* FROM [dbo].[DimStatusReservas] ",
+              "dataSource": "SqlServer localhost DM_Reservas"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[DimStatusReservas].* FROM [dbo].[DimStatusReservas] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DimStatusReservas"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "DimTipoUH",
+        "columns": [
+          {
+            "name": "IDTIPOUH",
+            "dataType": "int64",
+            "sourceColumn": "IDTIPOUH",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "DESCRICAO",
+            "dataType": "string",
+            "sourceColumn": "DESCRICAO",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DimTipoUH",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[DimTipoUH].* FROM [dbo].[DimTipoUH] ",
+              "dataSource": "SqlServer localhost DM_Reservas"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[DimTipoUH].* FROM [dbo].[DimTipoUH] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DimTipoUH"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "ftHospede",
+        "columns": [
+          {
+            "name": "IDHOSPEDE",
+            "dataType": "int64",
+            "sourceColumn": "IDHOSPEDE",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "NOMEHOSPEDE",
+            "dataType": "string",
+            "sourceColumn": "NOMEHOSPEDE",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "SEXO",
+            "dataType": "string",
+            "sourceColumn": "SEXO",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "UF",
+            "dataType": "string",
+            "sourceColumn": "UF",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "ftHospede",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[ftHospede].* FROM [dbo].[ftHospede] ",
+              "dataSource": "SqlServer localhost DM_Reservas"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[ftHospede].* FROM [dbo].[ftHospede] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "ftHospede"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "ftReservas",
+        "columns": [
+          {
+            "name": "IDRESERVA",
+            "dataType": "int64",
+            "sourceColumn": "IDRESERVA",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "IDHOTEL",
+            "dataType": "int64",
+            "sourceColumn": "IDHOTEL",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "IDORIGEM",
+            "dataType": "int64",
+            "sourceColumn": "IDORIGEM",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "IDSTATUSRESERVA",
+            "dataType": "int64",
+            "sourceColumn": "IDSTATUSRESERVA",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "IDTIPOUH",
+            "dataType": "int64",
+            "sourceColumn": "IDTIPOUH",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "IDHOSPEDE",
+            "dataType": "int64",
+            "sourceColumn": "IDHOSPEDE",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "VLRDIARIA",
+            "dataType": "double",
+            "sourceColumn": "VLRDIARIA",
+            "sourceProviderType": "Double"
+          },
+          {
+            "name": "DTRESERVA",
+            "dataType": "dateTime",
+            "sourceColumn": "DTRESERVA",
+            "formatString": "General Date",
+            "sourceProviderType": "DBDate"
+          },
+          {
+            "name": "RSVCONFIRMADA",
+            "dataType": "string",
+            "sourceColumn": "RSVCONFIRMADA",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "DTDATACHEGADA",
+            "dataType": "dateTime",
+            "sourceColumn": "DTDATACHEGADA",
+            "formatString": "General Date",
+            "sourceProviderType": "DBDate"
+          },
+          {
+            "name": "DTPARTIDA",
+            "dataType": "dateTime",
+            "sourceColumn": "DTPARTIDA",
+            "formatString": "General Date",
+            "sourceProviderType": "DBDate"
+          },
+          {
+            "name": "LOCRESERVA",
+            "dataType": "string",
+            "sourceColumn": "LOCRESERVA",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "QTDADULTOS",
+            "dataType": "int64",
+            "sourceColumn": "QTDADULTOS",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "QTDCHD1",
+            "dataType": "int64",
+            "sourceColumn": "QTDCHD1",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "QTDCHD2",
+            "dataType": "int64",
+            "sourceColumn": "QTDCHD2",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "OBSRESERVA",
+            "dataType": "string",
+            "sourceColumn": "OBSRESERVA",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "ftReservas",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[ftReservas].* FROM [dbo].[ftReservas] ",
+              "dataSource": "SqlServer localhost DM_Reservas"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[ftReservas].* FROM [dbo].[ftReservas] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "ftReservas"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "7c634af7-773c-428f-a3db-6106bae5cd34",
+        "fromTable": "ftReservas",
+        "fromColumn": "IDHOTEL",
+        "toTable": "DimHoteis",
+        "toColumn": "IDHOTEL"
+      },
+      {
+        "name": "724cefd7-b276-4467-86d3-0dbd72415338",
+        "fromTable": "ftReservas",
+        "fromColumn": "IDORIGEM",
+        "toTable": "DimOrigem",
+        "toColumn": "IDORIGEM"
+      },
+      {
+        "name": "5026fe4f-8da6-4597-9618-a945caf32d8e",
+        "fromTable": "ftReservas",
+        "fromColumn": "IDSTATUSRESERVA",
+        "toTable": "DimStatusReservas",
+        "toColumn": "IDSTATUSRESERVA"
+      },
+      {
+        "name": "f86cee18-430f-4520-ab93-fa54b80bd213",
+        "fromTable": "ftReservas",
+        "fromColumn": "IDTIPOUH",
+        "toTable": "DimTipoUH",
+        "toColumn": "IDTIPOUH"
+      },
+      {
+        "name": "8784388c-d0ed-4d95-9803-f7c8ec791266",
+        "fromTable": "ftReservas",
+        "fromColumn": "IDHOSPEDE",
+        "toTable": "ftHospede",
+        "toColumn": "IDHOSPEDE"
+      }
+    ],
+    "annotations": [
+      {
+        "name": "ClientCompatibilityLevel",
+        "value": "400"
+      }
+    ]
+  }
+}

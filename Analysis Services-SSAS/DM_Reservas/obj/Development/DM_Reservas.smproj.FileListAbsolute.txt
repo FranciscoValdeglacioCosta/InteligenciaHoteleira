@@ -1,0 +1,7 @@
+C:\Users\FRANCISCOPC\OneDrive\ALL_PROJECTS\GitHub\InteligenciaHoteleira\Analysis Services-SSAS\DM_Reservas\bin\DM_Reservas.asdatabase
+C:\Users\FRANCISCOPC\OneDrive\ALL_PROJECTS\GitHub\InteligenciaHoteleira\Analysis Services-SSAS\DM_Reservas\bin\DM_Reservas.deploymenttargets
+C:\Users\FRANCISCOPC\OneDrive\ALL_PROJECTS\GitHub\InteligenciaHoteleira\Analysis Services-SSAS\DM_Reservas\bin\DM_Reservas.deploymentoptions
+C:\Users\FRANCISCOPC\OneDrive\ALL_PROJECTS\GitHub\InteligenciaHoteleira\Analysis Services-SSAS\DM_Reservas\obj\Development\DM_Reservas.smproj.CoreCompileInputs.cache
+C:\Users\FRANCISCOPC\OneDrive\ALL_PROJECTS\GitHub\InteligenciaHoteleira\Analysis Services-SSAS\DM_Reservas\obj\Development\DM_Reservas.asdatabase
+C:\Users\FRANCISCOPC\OneDrive\ALL_PROJECTS\GitHub\InteligenciaHoteleira\Analysis Services-SSAS\DM_Reservas\obj\Development\DM_Reservas.deploymentoptions
+C:\Users\FRANCISCOPC\OneDrive\ALL_PROJECTS\GitHub\InteligenciaHoteleira\Analysis Services-SSAS\DM_Reservas\obj\Development\DM_Reservas.deploymenttargets
