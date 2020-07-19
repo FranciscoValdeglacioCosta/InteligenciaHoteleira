@@ -282,14 +282,27 @@
             "name": "VLRDIARIA",
             "dataType": "double",
             "sourceColumn": "VLRDIARIA",
-            "sourceProviderType": "Double"
+            "formatString": "\"R$\" #,0.00;-\"R$\" #,0.00;\"R$\" #,0.00",
+            "sourceProviderType": "Double",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\"><Currency LCID=\"1046\" DisplayName=\"R$ Portuguese (Brazil)\" Symbol=\"R$\" PositivePattern=\"2\" NegativePattern=\"9\" /></Format>"
+              }
+            ]
           },
           {
             "name": "DTRESERVA",
             "dataType": "dateTime",
             "sourceColumn": "DTRESERVA",
-            "formatString": "General Date",
-            "sourceProviderType": "DBDate"
+            "formatString": "dd/MM/yyyy",
+            "sourceProviderType": "DBDate",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"1046\" Group=\"ShortDate\" FormatString=\"dd/MM/yyyy\" /></DateTimes></Format>"
+              }
+            ]
           },
           {
             "name": "RSVCONFIRMADA",
@@ -301,15 +314,27 @@
             "name": "DTDATACHEGADA",
             "dataType": "dateTime",
             "sourceColumn": "DTDATACHEGADA",
-            "formatString": "General Date",
-            "sourceProviderType": "DBDate"
+            "formatString": "dd/MM/yyyy",
+            "sourceProviderType": "DBDate",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"1046\" Group=\"ShortDate\" FormatString=\"dd/MM/yyyy\" /></DateTimes></Format>"
+              }
+            ]
           },
           {
             "name": "DTPARTIDA",
             "dataType": "dateTime",
             "sourceColumn": "DTPARTIDA",
-            "formatString": "General Date",
-            "sourceProviderType": "DBDate"
+            "formatString": "dd/MM/yyyy",
+            "sourceProviderType": "DBDate",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"1046\" Group=\"ShortDate\" FormatString=\"dd/MM/yyyy\" /></DateTimes></Format>"
+              }
+            ]
           },
           {
             "name": "LOCRESERVA",
@@ -340,6 +365,11 @@
             "dataType": "string",
             "sourceColumn": "OBSRESERVA",
             "sourceProviderType": "Char"
+          },
+          {
+            "name": "DEADLINE",
+            "dataType": "dateTime",
+            "sourceColumn": "DEADLINE"
           }
         ],
         "partitions": [
@@ -348,15 +378,21 @@
             "dataView": "full",
             "source": {
               "type": "query",
-              "query": " SELECT [dbo].[ftReservas].* FROM [dbo].[ftReservas] ",
+              "query": "SELECT [dbo].[ftReservas].[IDRESERVA],[dbo].[ftReservas].[IDHOTEL],[dbo].[ftReservas].[IDORIGEM],[dbo].[ftReservas].[IDSTATUSRESERVA],[dbo].[ftReservas].[IDTIPOUH],[dbo].[ftReservas].[IDHOSPEDE],[dbo].[ftReservas].[VLRDIARIA],[dbo].[ftReservas].[DTRESERVA],[dbo].[ftReservas].[RSVCONFIRMADA],[dbo].[ftReservas].[DTDATACHEGADA],[dbo].[ftReservas].[DTPARTIDA],[dbo].[ftReservas].[LOCRESERVA],[dbo].[ftReservas].[QTDADULTOS],[dbo].[ftReservas].[QTDCHD1],[dbo].[ftReservas].[QTDCHD2],[dbo].[ftReservas].[OBSRESERVA],[DEADLINE] FROM [dbo].[ftReservas]",
               "dataSource": "SqlServer localhost DM_Reservas"
-            }
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT [dbo].[ftReservas].[IDRESERVA],[dbo].[ftReservas].[IDHOTEL],[dbo].[ftReservas].[IDORIGEM],[dbo].[ftReservas].[IDSTATUSRESERVA],[dbo].[ftReservas].[IDTIPOUH],[dbo].[ftReservas].[IDHOSPEDE],[dbo].[ftReservas].[VLRDIARIA],[dbo].[ftReservas].[DTRESERVA],[dbo].[ftReservas].[RSVCONFIRMADA],[dbo].[ftReservas].[DTDATACHEGADA],[dbo].[ftReservas].[DTPARTIDA],[dbo].[ftReservas].[LOCRESERVA],[dbo].[ftReservas].[QTDADULTOS],[dbo].[ftReservas].[QTDCHD1],[dbo].[ftReservas].[QTDCHD2],[dbo].[ftReservas].[OBSRESERVA],[DEADLINE] FROM [dbo].[ftReservas]</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+              }
+            ]
           }
         ],
         "annotations": [
           {
             "name": "_TM_ExtProp_QueryDefinition",
-            "value": " SELECT [dbo].[ftReservas].* FROM [dbo].[ftReservas] "
+            "value": "SELECT [dbo].[ftReservas].[IDRESERVA],[dbo].[ftReservas].[IDHOTEL],[dbo].[ftReservas].[IDORIGEM],[dbo].[ftReservas].[IDSTATUSRESERVA],[dbo].[ftReservas].[IDTIPOUH],[dbo].[ftReservas].[IDHOSPEDE],[dbo].[ftReservas].[VLRDIARIA],[dbo].[ftReservas].[DTRESERVA],[dbo].[ftReservas].[RSVCONFIRMADA],[dbo].[ftReservas].[DTDATACHEGADA],[dbo].[ftReservas].[DTPARTIDA],[dbo].[ftReservas].[LOCRESERVA],[dbo].[ftReservas].[QTDADULTOS],[dbo].[ftReservas].[QTDCHD1],[dbo].[ftReservas].[QTDCHD2],[dbo].[ftReservas].[OBSRESERVA],[DEADLINE] FROM [dbo].[ftReservas]"
           },
           {
             "name": "_TM_ExtProp_DbTableName",
@@ -365,6 +401,10 @@
           {
             "name": "_TM_ExtProp_DbSchemaName",
             "value": "dbo"
+          },
+          {
+            "name": "QueryEditorSerialization",
+            "value": "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT [dbo].[ftReservas].[IDRESERVA],[dbo].[ftReservas].[IDHOTEL],[dbo].[ftReservas].[IDORIGEM],[dbo].[ftReservas].[IDSTATUSRESERVA],[dbo].[ftReservas].[IDTIPOUH],[dbo].[ftReservas].[IDHOSPEDE],[dbo].[ftReservas].[VLRDIARIA],[dbo].[ftReservas].[DTRESERVA],[dbo].[ftReservas].[RSVCONFIRMADA],[dbo].[ftReservas].[DTDATACHEGADA],[dbo].[ftReservas].[DTPARTIDA],[dbo].[ftReservas].[LOCRESERVA],[dbo].[ftReservas].[QTDADULTOS],[dbo].[ftReservas].[QTDCHD1],[dbo].[ftReservas].[QTDCHD2],[dbo].[ftReservas].[OBSRESERVA],[DEADLINE] FROM [dbo].[ftReservas]</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
           }
         ]
       }

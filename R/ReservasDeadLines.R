@@ -1,5 +1,5 @@
-install.packages("RODBC")
-library(odbc)
+install.packages("RODBC","formattable")
+library(RODBC)
 
 # Conectando no banco de dados SQLSERVER
 
@@ -19,7 +19,6 @@ View(DimOrigem)
 View(DimTipoUH)
 View(ftHospede)
 View(ftReservas) 
-
 
 
 
@@ -64,16 +63,45 @@ hist(df$VLRDIARIA,breaks = 4)
 
 plot(df$UF)
 
+#tabela com as reservas 
+library(formattable)
+
+formattable(df, list(
+  ORIGEM = color_tile("white", "blue")
+  
+))
 
 
 
+#filto somente reservas nao garatidas
+
+rsvn <- filter(df,RSVCONFIRMADA =="N")
+View(rsvn)
 
 
-#gravar no sqllite a analise feita 
+#Valor Rsv nao confirmadas
 
-install.packages
+library(formattable)
 
-install.packages("RSQLite")
+formattable(rsvn, list(
+  RSVCONFIRMADA = color_tile("white", "red")
+  
+))
+
+#valor total Reservas não confidas
+ rsvValor <-  data.frame(sum(rsvn$VLRDIARIA))
+ 
+  rsvValor<- rsvValor  %>%
+   mutate(texto = c("Reservas que não foram feitos cobrança de confirmação em 7 dias após data reserva  houve uma perda de receita de:") 
+   )
+
+View(rsvValor)
+
+
+#gravar no sqllite a analise feita  arquivo csv
+
+write.csv(df, 'DeadLineReservas.csv', row.names = F)
+dir()
 
 
 
